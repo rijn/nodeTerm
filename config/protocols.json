@@ -1,0 +1,104 @@
+
+{
+    "version" : "20160101",
+    "protocols" :
+    {
+        "ProtoSBN1" :
+        {
+            "prefix" : [
+                {
+                    "comment" : "checksum",
+                    "todo" : "function(package){var checksum = 0;for (var i = 0; i < package.length; i += 2) {checksum = checksum + parseInt((package[i] + package[i + 1]), 16);};checksum %= 256;var hex = checksum.toString(16);if (hex.length == 1) hex = '0' + hex;return hex + package;}"
+                },
+                {
+                    "comment" : "length",
+                    "todo" : "function(package){var hex = ((package.length-2) / 2).toString(16);if(hex.length == 1) hex = '0' + hex;return hex + package;}"
+                },
+                {
+                    "comment" : "index",
+                    "todo" : "function(package){window.index = (window.index || 0) + 1;if(window.index > 255) window.index = 0;var hex = window.index.toString(16);if(hex.length == 1) hex = '0' + hex;return (hex + package).toUpperCase();}"
+                },
+                {
+                    "comment" : "header",
+                    "todo" : "function(package){return '53424E31' + package.toUpperCase();}"
+                }
+            ],
+            "source" : null,
+            "destination" : null,
+            "operands" :
+            {
+                "ProbeRequest" :
+                {
+                    "value" : "01",
+                    "enums" : []
+                },
+                "ProbeResponse" :
+                {
+                    "value" : "02",
+                    "enums" : [
+                        {
+                            "length" : 1,
+                            "comment" : "device type",
+                            "value" :
+                            {
+                                "00-ff" : "device type"
+                            }
+                        },
+                        {
+                            "length" : 12,
+                            "comment" : "device id",
+                            "value" : null
+                        }
+                    ]
+                },
+                "SearchRequest" :
+                {
+                    "value" : "03",
+                    "enums" : [
+                        {
+                            "length" : 1,
+                            "comment" : "switch",
+                            "value" :
+                            {
+                                "00" : "stop",
+                                "01" : "start"
+                            }
+                        }
+                    ]
+                },
+                "SearchResponse" :
+                {
+                    "value" : "04",
+                    "enums" : [
+                        {
+                            "length" : 1,
+                            "comment" : "address",
+                            "value" :
+                            {
+                                "00-ff" : "address"
+                            }
+                        },
+                        {
+                            "length" : 1,
+                            "comment" : "device type",
+                            "value" :
+                            {
+                                "00-ff" : "device type"
+                            }
+                        },
+                        {
+                            "length" : 12,
+                            "comment" : "device id",
+                            "value" : null
+                        }
+                    ]
+                }
+            },
+            "auto-detect" :
+            {
+                "operand" : "ProbeRequest",
+                "enums" : ""
+            }
+        }
+    }
+}

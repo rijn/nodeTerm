@@ -1,0 +1,37 @@
+{
+  "name": "nodeterm",
+  "main": "app.html",
+  "window": {
+    "show": true,
+    "frame": true,
+    "toolbar": false,
+    "icon": "app.icns",
+    "width": 1100,
+    "height": 800,
+    "position": "center"
+  },
+  "scripts": {
+    "start": "nw ."
+  },
+  "description": "nodeTerm is a terminal for communication with hardware connected to serial ports based on nw.js &amp; node-serialport",
+  "version": "0.1.0",
+  "dependencies": {
+    "fs": "^0.0.2",
+    "serialport": "^2.0.5",
+    "util": "^0.10.3"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://rijn@github.com/rijn/nodeTerm.git"
+  },
+  "keywords": [
+    "termianl"
+  ],
+  "author": "rijn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rijn/nodeTerm/issues"
+  },
+  "homepage": "https://github.com/rijn/nodeTerm#readme"
+}

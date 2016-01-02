@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Debugger</title>
+    <link rel="stylesheet" type="text/css" href="assets/dist/semantic.min.css">
+    <script src="assets/javascripts/jquery-2.1.4.min.js"></script>
+    <script src="assets/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div class="banner">
+        Dexta Robotics
+    </div>
+    <div class="main">
+        <div class="row">
+            <button class="ui button active" id="open-inspector-button">Inspector</button>
+            <div class="ui floating dropdown labeled search icon button" id="port-list">
+                <i class="plug icon"></i>
+                <span class="text">Port</span>
+                <div class="menu">
+                </div>
+            </div>
+            <button class="ui icon button" id="refresh-port-button">
+                <i class="refresh icon"></i>
+            </button>
+            <div class="ui floating dropdown labeled search icon button" id="baudrate-list">
+                <i class="signal icon"></i>
+                <span class="text">Baudrate</span>
+                <div class="menu">
+                    <div class="item">9600</div>
+                    <div class="item">57600</div>
+                    <div class="item">115200</div>
+                    <div class="item">230400</div>
+                </div>
+            </div>
+            <button class="ui right floated button" id="connect-button">Connect</button>
+            <button class="ui blue right floated button" id="auto-detect-button">Auto-detect</button>
+        </div>
+        <div class="row" style="height:200px">
+            <div class="ui segment" style="padding:0">
+                <div class="ui grid data-flow">
+                    <div class="ten wide column left">
+                        <div class="viewer hex" id="flow-hex">
+                        </div>
+                        <input class="input-flow" id="input-hex" />
+                    </div>
+                    <div class="six wide column right">
+                        <div class="viewer ascii" id="flow-ascii">
+                        </div>
+                        <input class="input-flow" id="input-ascii" />
+                    </div>
+                </div>
+                <!--                 <div class="twelve wide column">
+                    <div class="ui vertical segments">
+                        <div class="ui blue segment">
+                            <p>Hex</p>
+                        </div>
+                        <div class="ui segment">
+                            <div class="ui large labeled fluid input">
+                                <div class="ui blue label">
+                                    Hex
+                                </div>
+                                <input type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!--                 <div class="ui green segment">
+                    <p>AscII</p>
+                </div>
+            </div> -->
+        </div>
+        <div class="row" id="enums-list">
+            <div class="small ui teal button">Enums</div>
+            <!--             <div class="tiny ui labeled button" tabindex="0" id="protocol-header">
+                <div class="tiny ui button">Header</div>
+                <div class="tiny ui basic label"></div>
+            </div> -->
+        </div>
+        <div class="row">
+            <div class="ui grid">
+                <div class="ten wide column" id="protocol-prefix-list">
+                    <div class="ui teal label">Prefix</div>
+                </div>
+                <div class="six wide column" id="operation-list">
+                    <button class="small ui right floated button" id="send-button">Send</button>
+                    <div class="small ui right floated buttons">
+                        <button class="small ui basic button" id="auto-send-button">Send after generate</button>
+                        <button class="small ui button" id="generate-button">Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height:200px">
+            <div class="ui grid" style="height:100%">
+                <div class="three wide column">
+                    <div class="ui vertical small fluid menu">
+                        <div class="ui small dropdown item" id="protocol-list">
+                            <i class="mobile icon"></i>
+                            <span class="text">Protocol</span>
+                            <div class="menu">
+                            </div>
+                        </div>
+                        <div class="item" id="operands-list">
+                            Operands
+                            <div class="menu">
+                            </div>
+                        </div>
+                        <!--                         <div class="ui dropdown item">
+                            More
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item"><i class="edit icon"></i> Edit Profile</a>
+                                <a class="item"><i class="globe icon"></i> Choose Language</a>
+                                <a class="item"><i class="settings icon"></i> Account Settings</a>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="thirteen wide stretched column" style="height:100%">
+                    <div class="ui segments">
+                        <div class="ui segment">
+                            <p>Packages</p>
+                        </div>
+                        <div class="ui secondary segment">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="output">
+    </div>
+    <div class="ui small modal">
+        <div class="header">Start search</div>
+        <div class="content">
+            <p></p>
+            <div class="ui massive labeled input">
+                <div class="ui label">
+                    Address
+                </div>
+                <input type="text">
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui approve button">Send</div>
+            <div class="ui cancel button">Cancel</div>
+        </div>
+    </div>
+</body>
+
+</html>
